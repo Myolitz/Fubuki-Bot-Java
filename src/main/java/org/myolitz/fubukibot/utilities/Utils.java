@@ -21,7 +21,7 @@ public class Utils extends Lists {
     public boolean catChance() {
         int num = (int)(Math.random() * ((1000) + 1));
 
-        if (num > 990) {
+        if (num >= 900) {
             return true;
         }
         else return false;
