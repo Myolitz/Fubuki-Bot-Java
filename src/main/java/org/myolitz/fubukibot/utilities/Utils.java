@@ -13,15 +13,15 @@ public class Utils extends Lists {
     }
 
     public File GenImage() {
-        int index = (int)(Math.random() * ((1) + 1));
+        int index = (int)(Math.random() * ((14) + 1));
         File x = new File(imageList[index]);
         return x;
     }
 
     public boolean catChance() {
-        int num = (int)(Math.random() * ((100) + 1));
+        int num = (int)(Math.random() * ((1000) + 1));
 
-        if (num > 95) {
+        if (num > 990) {
             return true;
         }
         else return false;
