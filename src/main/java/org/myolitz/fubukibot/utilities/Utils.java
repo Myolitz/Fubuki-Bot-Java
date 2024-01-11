@@ -13,7 +13,8 @@ public class Utils extends Lists {
     }
 
     public File GenImage() {
-        int index = (int)(Math.random() * ((14) + 1));
+        int index = (int)(Math.random() * ((13 - 1) + 1));
+        System.out.println(index);
         File x = new File(imageList[index]);
         return x;
     }
@@ -29,6 +30,10 @@ public class Utils extends Lists {
 
     public File getCat() {
         return new File(catLocation);
+    }
+
+    public String[] getSecrets() {
+        return secrets;
     }
 
 //    public int getCatCount() {

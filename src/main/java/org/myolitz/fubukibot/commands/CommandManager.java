@@ -49,6 +49,15 @@ public class CommandManager extends ListenerAdapter {
             case "picture" -> {
                 event.replyFiles(FileUpload.fromData(utils.GenImage())).queue();
             }
+            case "bucky secret" -> {
+                String resp = "";
+                String intro = "## My secret keywords are: \n";
+                String[] words = utils.getSecrets();
+                for (String s : words) {
+                    resp += s.replace(s.charAt(0), s.toUpperCase().charAt(0)) + "\n";
+                }
+                event.reply(intro + resp).queue();
+            }
 //            case "cat-count" -> {
 //                event.reply("There have been " + utils.getCatCount() + " cats generated today").queue();
 //            }
@@ -63,7 +72,7 @@ public class CommandManager extends ListenerAdapter {
         guildCmds.add(Commands.slash("greet", "Get greeted"));
         guildCmds.add(Commands.slash("quote", "Get a Fubuki quote"));
         guildCmds.add(Commands.slash("picture", "Get a picture of Fubuki"));
-        //guildCmds.add(Commands.slash("cat-count", "How many cats have been generated this instance"));
+        guildCmds.add(Commands.slash("bucky-secrets", "All the secret keywords"));
         guildCmds.add(Commands.slash("help", "List the current commands"));
 
 

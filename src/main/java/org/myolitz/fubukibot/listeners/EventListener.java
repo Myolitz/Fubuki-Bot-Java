@@ -27,8 +27,7 @@ public class EventListener extends ListenerAdapter {
 
         if (event.getAuthor().isBot()) {
             event.getChannel().sendMessage("I don't talk to bots");
-        }
-        else {
+        } else {
             switch (message.toLowerCase()) {
                 case "fubuki" -> {
                     event.getChannel().sendMessage("Yo~ dayo~").queue();
@@ -54,8 +53,7 @@ public class EventListener extends ListenerAdapter {
                                 event.getChannel().sendFiles(FileUpload.fromData(utils.getCat())).queue();
                             }
                         }
-                    }
-                    else if (event.getGuild().getName().equalsIgnoreCase("Myo's Crack Den")) {
+                    } else if (event.getGuild().getName().equalsIgnoreCase("Myo's Crack Den")) {
                         if (event.getChannel().getName().equalsIgnoreCase("cat-test")) {
                             //utils.increaseCat();
                             event.getChannel().sendFiles(FileUpload.fromData(utils.getCat())).queue();
@@ -64,9 +62,7 @@ public class EventListener extends ListenerAdapter {
                 }
             }
         }
-
     }
-
     /**
      * Requires "Guild Members" gateway intent
      * Activates on member join

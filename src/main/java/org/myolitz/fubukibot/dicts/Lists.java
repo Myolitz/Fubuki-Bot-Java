@@ -34,6 +34,16 @@ public class Lists {
             "Commander, this bell is just for decoration..."
     };
 
+    final public String[] secrets = new String[]{
+            "fubuki",
+            "sbeve",
+            "sbren",
+            "ping",
+            "your mother",
+            "your mother.",
+            "cat"
+    };
+
     final public String catLocation = "src\\main\\resources\\images\\cat\\angry.webp";
 
 
