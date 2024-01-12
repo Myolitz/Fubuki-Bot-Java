@@ -45,10 +45,7 @@ public class Lists {
     };
 
     final public String catLocation = "src\\main\\resources\\images\\cat\\angry.webp";
-
-
-
-
+    final public String uniLocation = "src\\main\\resources\\images\\cat\\uni.jpg";
 
 
 

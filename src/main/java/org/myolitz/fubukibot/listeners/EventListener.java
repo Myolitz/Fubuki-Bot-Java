@@ -46,17 +46,23 @@ public class EventListener extends ListenerAdapter {
                 }
                 case "cat" -> {
                     boolean x = utils.catChance();
+                    boolean y = utils.uniChance();
                     if (event.getGuild().getName().equalsIgnoreCase("Sbeve")) {
                         if (event.getChannel().getName().equalsIgnoreCase("cat-spam")) {
+                            if (event.getAuthor().getName().equalsIgnoreCase("ffubuki")) {
+                                event.getChannel().sendFiles(FileUpload.fromData(utils.getCat("uni"))).queue();
+                            }
+                            if (y) {
+                                event.getChannel().sendFiles(FileUpload.fromData(utils.getCat("uni"))).queue();
+                            }
                             if (x) {
-                                //utils.increaseCat();
-                                event.getChannel().sendFiles(FileUpload.fromData(utils.getCat())).queue();
+                                event.getChannel().sendFiles(FileUpload.fromData(utils.getCat("angry"))).queue();
                             }
                         }
                     } else if (event.getGuild().getName().equalsIgnoreCase("Myo's Crack Den")) {
                         if (event.getChannel().getName().equalsIgnoreCase("cat-test")) {
                             //utils.increaseCat();
-                            event.getChannel().sendFiles(FileUpload.fromData(utils.getCat())).queue();
+                            event.getChannel().sendFiles(FileUpload.fromData(utils.getCat("angry"))).queue();
                         }
                     }
                 }

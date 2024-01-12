@@ -1,5 +1,6 @@
 package org.myolitz.fubukibot.commands;
 
+import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.events.guild.GuildJoinEvent;
 import net.dv8tion.jda.api.events.guild.GuildReadyEvent;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
@@ -49,7 +50,7 @@ public class CommandManager extends ListenerAdapter {
             case "picture" -> {
                 event.replyFiles(FileUpload.fromData(utils.GenImage())).queue();
             }
-            case "bucky secret" -> {
+            case "bucky-secrets" -> {
                 String resp = "";
                 String intro = "## My secret keywords are: \n";
                 String[] words = utils.getSecrets();
@@ -80,14 +81,13 @@ public class CommandManager extends ListenerAdapter {
 
     }
 
-    @Override
-    public void onGuildJoin(GuildJoinEvent event) {
-
-    }
 
     // Global Cmds
     @Override
     public void onReady(ReadyEvent event) {
+        TextChannel intro = event.getJDA().getTextChannelById("1194808461641396234");
+        intro.sendMessage("Yoohoo~ yours truly Fubuki class has arrived, so you’re the Commander? I'm looking forward to your guidance~").queue();
+
         List<CommandData> globalCmds = new ArrayList<>();
         globalCmds.add(Commands.slash("welcome", "Get Welcomed"));
         event.getJDA().updateCommands().addCommands(globalCmds).queue();

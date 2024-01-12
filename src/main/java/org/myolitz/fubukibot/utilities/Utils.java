@@ -20,16 +20,27 @@ public class Utils extends Lists {
     }
 
     public boolean catChance() {
-        int num = (int)(Math.random() * ((1000) + 1));
+        int num = (int)(Math.random() * ((10000 - 1) + 1));
 
-        if (num >= 900) {
-            return true;
-        }
-        else return false;
+        return num >= 9990;
     }
 
-    public File getCat() {
-        return new File(catLocation);
+    public boolean uniChance() {
+        int num = (int)(Math.random() * ((100 - 1) + 1));
+
+        return num == 100;
+    }
+
+    public File getCat(String cat) {
+        switch (cat) {
+            case "angry" -> {
+                return new File(catLocation);
+            }
+            case "uni" -> {
+                return new File(uniLocation);
+            }
+        }
+        return null;
     }
 
     public String[] getSecrets() {
