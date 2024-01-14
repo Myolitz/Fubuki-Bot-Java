@@ -22,7 +22,7 @@ public class Utils extends Lists {
     public boolean catChance() {
         int num = (int)(Math.random() * ((10000 - 1) + 1));
 
-        return num >= 9990;
+        return num >= 9900;
     }
 
     public boolean uniChance() {

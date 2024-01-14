@@ -55,7 +55,7 @@ public class EventListener extends ListenerAdapter {
                             if (y) {
                                 event.getChannel().sendFiles(FileUpload.fromData(utils.getCat("uni"))).queue();
                             }
-                            if (x) {
+                            else if (x) {
                                 event.getChannel().sendFiles(FileUpload.fromData(utils.getCat("angry"))).queue();
                             }
                         }
@@ -120,16 +120,26 @@ public class EventListener extends ListenerAdapter {
         //Desired output
         String message = user.getName() + " reacted to a message in " + jumpLink;
 
-        //Will differentiate between Sbeve and Test (as those 2 will be the only servers it'll ever be active in)
-        if (event.getGuild().getName().equalsIgnoreCase("Sbeve")) {
-            TextChannel txtChanSbeve =
-                    event.getGuild().getTextChannelById("1194808461641396234");
-            txtChanSbeve.sendMessage(message).queue();
+        //Will check whether its another bot reacting
+        if (user.isBot()) {
+            if (event.getGuild().getName().equalsIgnoreCase("Sbeve")) {
+                TextChannel botReacts = event.getGuild()
+                        .getTextChannelById("1196185125717819392");
+                botReacts.sendMessage(message).queue();
+            }
         }
-        else if (event.getGuild().getName().equalsIgnoreCase("Myo's Crack Den")) {
-            TextChannel txtChanTest =
-                    event.getGuild().getTextChannelById("1194742650591510589");
-            txtChanTest.sendMessage(message).queue();
+        else {
+            //Will differentiate between Sbeve and Test (as those 2 will be the only servers it'll ever be active in)
+            if (event.getGuild().getName().equalsIgnoreCase("Sbeve")) {
+                TextChannel txtChanSbeve =
+                        event.getGuild().getTextChannelById("1194808461641396234");
+                txtChanSbeve.sendMessage(message).queue();
+            }
+            else if (event.getGuild().getName().equalsIgnoreCase("Myo's Crack Den")) {
+                TextChannel txtChanTest =
+                        event.getGuild().getTextChannelById("1194742650591510589");
+                txtChanTest.sendMessage(message).queue();
+            }
         }
 
     }
