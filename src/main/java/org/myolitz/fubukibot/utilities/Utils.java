@@ -2,9 +2,10 @@ package org.myolitz.fubukibot.utilities;
 
 import org.myolitz.fubukibot.dicts.Lists;
 import java.io.File;
+import java.io.FileNotFoundException;
 
 public class Utils extends Lists {
-    int catCount = 0;
+
 
     public String GenerateQuote()
     {
@@ -19,40 +20,62 @@ public class Utils extends Lists {
         return x;
     }
 
-    public boolean catChance() {
+    public String[] getSecrets() {
+        return secrets;
+    }
+
+    //Below are literally pure Cat Chances
+
+    public boolean angyChance() {
         int num = (int)(Math.random() * ((10000 - 1) + 1));
 
-        return num >= 9900;
+        return num >= 7000;
     }
 
     public boolean uniChance() {
         int num = (int)(Math.random() * ((100 - 1) + 1));
 
-        return num == 100;
+        return num >= 80;
     }
 
-    public File getCat(String cat) {
-        switch (cat) {
-            case "angry" -> {
-                return new File(catLocation);
-            }
-            case "uni" -> {
-                return new File(uniLocation);
+    public boolean ponyoChance() {
+        int num = (int)(Math.random() * ((100 - 1) + 1));
+
+        return num >= 95;
+    }
+
+    public File getCat(String special) {
+        if (special.equalsIgnoreCase("uni")) {
+            return new File(catLocations.get("uni"));
+        }
+        else if (special.equalsIgnoreCase("ponyo")) {
+            return new File(catLocations.get("ponyo"));
+        }
+        else if (special.equalsIgnoreCase("angy")) {
+            return new File(catLocations.get("angy"));
+        }
+        //Ponyo and Uni are both 1% chances (might get raised) so they'll get checked for first
+        return null;
+    }
+
+    // Special Myo-only check
+    public File myoCat() {
+        int num = 0;
+        while (num == 0) {
+            num = (int) (Math.random() * ((4 - 1) + 1));
+
+            System.out.println(num);
+
+            if (num == 1) {
+                return new File(catLocations.get("ponyo"));
+            } else if (num == 2) {
+                return new File(catLocations.get("uni"));
+            } else if (num == 3) {
+                return new File(catLocations.get("angy"));
             }
         }
         return null;
     }
-
-    public String[] getSecrets() {
-        return secrets;
-    }
-
-//    public int getCatCount() {
-//        return this.catCount;
-//    }
-//
-//    public void increaseCat() {
-//        this.catCount += 1;
-//    }
+    ;
 
 }

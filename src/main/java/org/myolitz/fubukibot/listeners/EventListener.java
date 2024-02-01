@@ -4,8 +4,6 @@ import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.entities.channel.Channel;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
-import net.dv8tion.jda.api.entities.channel.middleman.GuildChannel;
-import net.dv8tion.jda.api.events.guild.GuildLeaveEvent;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.events.message.react.MessageReactionAddEvent;
@@ -45,24 +43,29 @@ public class EventListener extends ListenerAdapter {
                     event.getChannel().sendMessage("Ya daddy").queue();
                 }
                 case "cat" -> {
-                    boolean x = utils.catChance();
-                    boolean y = utils.uniChance();
                     if (event.getGuild().getName().equalsIgnoreCase("Sbeve")) {
                         if (event.getChannel().getName().equalsIgnoreCase("cat-spam")) {
                             if (event.getAuthor().getName().equalsIgnoreCase("ffubuki")) {
-                                event.getChannel().sendFiles(FileUpload.fromData(utils.getCat("uni"))).queue();
+                                event.getChannel().sendFiles(FileUpload.fromData(utils.myoCat())).queue();
                             }
-                            if (y) {
+                            boolean x, y, z = false;
+                            x = utils.angyChance();
+                            y = utils.uniChance();
+                            z = utils.ponyoChance();
+
+                            if (z) {
+                                event.getChannel().sendFiles(FileUpload.fromData(utils.getCat("ponyo"))).queue();
+                            }
+                            else if (y) {
                                 event.getChannel().sendFiles(FileUpload.fromData(utils.getCat("uni"))).queue();
                             }
                             else if (x) {
-                                event.getChannel().sendFiles(FileUpload.fromData(utils.getCat("angry"))).queue();
+                                event.getChannel().sendFiles(FileUpload.fromData(utils.getCat(""))).queue();
                             }
                         }
                     } else if (event.getGuild().getName().equalsIgnoreCase("Myo's Crack Den")) {
                         if (event.getChannel().getName().equalsIgnoreCase("cat-test")) {
-                            //utils.increaseCat();
-                            event.getChannel().sendFiles(FileUpload.fromData(utils.getCat("angry"))).queue();
+                            event.getChannel().sendFiles(FileUpload.fromData(utils.myoCat())).queue();
                         }
                     }
                 }

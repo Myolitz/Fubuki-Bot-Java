@@ -3,6 +3,8 @@ package org.myolitz.fubukibot.dicts;
 
 import javax.swing.text.View;
 import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Lists {
 
@@ -43,6 +45,11 @@ public class Lists {
             "your mother.",
             "cat"
     };
+
+    final public Map<String, String> catLocations = Map.of(
+            "angy", "src\\main\\resources\\images\\cat\\angry.webp",
+            "uni", "src\\main\\resources\\images\\cat\\uni.jpg",
+            "ponyo", "src\\main\\resources\\images\\cat\\ponyo.webp");
 
     final public String catLocation = "src\\main\\resources\\images\\cat\\angry.webp";
     final public String uniLocation = "src\\main\\resources\\images\\cat\\uni.jpg";
